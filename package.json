@@ -3,14 +3,14 @@
   "version": "0.0.0",
   "private": true,
   "scripts": {
-    "prestart": "npm install",
     "start": "node app.js",
-    "pretest": "npm install",
     "test": "NODE_ENV=test ./node_modules/.bin/mocha test --exit"
   },
   "devDependencies": {
     "chai": "^4.1.0",
+    "chai-dom": "^1.8.1",
     "chai-http": "^3.0.0",
+    "chai-webdriver": "^1.2.0",
     "gulp": "^3.9.1",
     "jest": "^24.8.0",
     "jquery": "^3.2.1",

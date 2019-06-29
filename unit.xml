@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuites name="Mocha Tests" time="0.071" tests="2" failures="0">
+  <testsuite name="Root Suite" timestamp="2019-06-29T12:58:54" tests="0" failures="0" time="0">
+  </testsuite>
+  <testsuite name="Reminder Test Results: 
+" timestamp="2019-06-29T12:58:54" tests="2" file="/Users/dhilip.velusamy/Dhilip/hrank/list-view-3h88d1ce91k/test/test.js" failures="0" time="0.071">
+    <testcase name="Reminder Test Results: 
+ should test load the page" time="0.012" classname="should test load the page">
+    </testcase>
+    <testcase name="Reminder Test Results: 
+ should Render Page with Fields &apos;timerName&apos;,&apos;time&apos; and &apos;addBtn&apos;" time="0.059" classname="should Render Page with Fields &apos;timerName&apos;,&apos;time&apos; and &apos;addBtn&apos;">
+    </testcase>
+  </testsuite>
+</testsuites>
