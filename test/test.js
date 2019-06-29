@@ -48,75 +48,97 @@ describe('Reminder Test Results: \n', function() {
         let page = await driver.getPageSource();
     });
 
-    it ('should Render Page with Fields \'timerName\',\'time\' and \'addBtn\'', async function() {
+    // it ('should Render Page with Fields \'timerName\',\'time\' and \'addBtn\'', async function() {
+    //     let inputField1 = await driver.findElement(By.id('timerName'));
+    //     let inputField2 = await driver.findElement(By.id('time'));
+    //     let addbButton = await driver.findElement(By.id('addBtn'));
+    //     expect(inputField1).dom.to.be.visible();
+    //     expect(inputField2).dom.to.be.visible();
+    //     expect(addbButton).dom.to.be.visible();
+
+    // });
+
+    it ('should not add a card if either of the input field is Empty', async function() {
         let inputField1 = await driver.findElement(By.id('timerName'));
         let inputField2 = await driver.findElement(By.id('time'));
         let addbButton = await driver.findElement(By.id('addBtn'));
-        expect(inputField1).dom.to.be.visible();
-        expect(inputField2).dom.to.be.visible();
-        expect(addbButton).dom.to.be.visible();
+        await inputField1.sendKeys("");
+        await inputField2.sendKeys("");
+        await addbButton.click();
+        let list = await driver.findElements(By.tagName("li"));
+        expect(list.length).to.equal(0);
 
+        // Empty Timer
+        inputField1.clear();
+        inputField2.clear();
+        await inputField1.sendKeys("Reminder 1");
+        await inputField2.sendKeys("");
+        await addbButton.click();
+        list = await driver.findElements(By.tagName("li"));
+        expect(list.length).to.equal(0);
+
+         // Empty Label
+         inputField1.clear();
+         inputField2.clear();
+         await inputField1.sendKeys(" ");
+         await inputField2.sendKeys("1s");
+         await addbButton.click();
+         list = await driver.findElements(By.tagName("li"));
+         expect(list.length).to.equal(0);
     });
-    
-    // it('should ignore empty input and not add new element to list', async function(){
-    //     let input = await driver.findElement(By.id("input"));
-    //     input.sendKeys("");
-    //     let val = await input.getAttribute('value');
 
-    //        let button = await driver.findElement(By.id("button"));
-    //        let bevent = await button.click();
+    // it ('should add a list item on clicking add', async function() {
 
-    //        let list = await driver.findElements(By.tagName("li"));
-    //        expect(list.length).to.equal(0);
+    //     const LABEL1 = 'Reminder1';
+    //     const TIMER1 = '1s';
+    //     let inputField1 = await driver.findElement(By.id('timerName'));
+    //     let inputField2 = await driver.findElement(By.id('time'));
+    //     let addbButton = await driver.findElement(By.id('addBtn'));
+    //     await inputField1.sendKeys(LABEL1);
+    //     await inputField2.sendKeys(TIMER1);
+    //     await addbButton.click();
+    //     let list = await driver.findElements(By.tagName("li"));
+    //     expect(list.length).to.equal(1);
+    //     // var timerList = await driver.findElement(By.xpath(`//div[id='timerList' div[text()='${LABEL1}']]`));
 
-    //        input.sendKeys(" ");
-    //     val = await input.getAttribute('value');
+    //     // expect(timerList.children.length).to.equal(1);
+    //     // expect(timerList.children[0].children[0]).to.equal(LABEL1);
+    //     // expect(timerList.children[0].children[2]).to.equal(TIMER1);
 
-    //        button = await driver.findElement(By.id("button"));
-    //        bevent = await button.click();
+    //     // Empty Timer
+    //     inputField1.clear();
+    //     inputField2.clear();
+    //     await inputField1.sendKeys("Reminder 2");
+    //     await inputField2.sendKeys("1h");
+    //     await addbButton.click();
+    //     list = await driver.findElements(By.tagName("li"));
+    //     expect(list.length).to.equal(2);
 
-    //        list = await driver.findElements(By.tagName("li"));
-    //        expect(list.length).to.equal(0);
-
+    //      // Empty Label
+    //     inputField1.clear();
+    //     inputField2.clear();
+    //     await inputField1.sendKeys("Reminder 3");
+    //     await inputField2.sendKeys("1m");
+    //     await addbButton.click();
+    //     list = await driver.findElements(By.tagName("li"));
+    //     expect(list.length).to.equal(3);
     // });
 
-    // it('should get input and add new element to list', async function(){
-    //         let input = await driver.findElement(By.id("input"));
-    //         input.sendKeys("USA");
-    //         let val = await input.getAttribute('value');
+    it ('should show a popup on adding element', async () => {
+        const LABEL = 'Reminder_1';
 
-    //            let button = await driver.findElement(By.id("button"));
-    //            button.click();
-
-    //            let list = await driver.findElements(By.tagName("li"));
-    //            expect(list.length).to.equal(1);
-
-    // });
-
-    // it('should check for red color of text for each 3rd element', async function(){
-        
-    //         let input = await driver.findElement(By.id("input"));
-    //         let button = await driver.findElement(By.id("button"));
-    //         input.clear();
-    //         input.sendKeys("India");
-    //            button.click();
-    //            input.clear();
-    //         input.sendKeys("France");
-    //            button.click();
-    //            input.clear();
-    //         input.sendKeys("Spain");
-    //            button.click();
-    //            input.clear();
-
-    //            let list = await driver.findElements(By.tagName("li"));
-    //            let value = await list[2].getCssValue('color');
-    //            value = value.substring(5, value.length-1)
-    //          .replace(/ /g, '')
-    //          .split(',');
-
-    //         value.pop();
-    //         let checkValue = value.reduce( (prev, curr) => prev + rgbToHex(curr), "#");
-    //            expect(checkValue).to.equal('#ff0000');
-
-    // });
+        let inputField1 = await driver.findElement(By.id('timerName'));
+        let inputField2 = await driver.findElement(By.id('time'));
+        let addbButton = await driver.findElement(By.id('addBtn'));
+        await inputField1.sendKeys(LABEL);
+        await inputField2.sendKeys("10s");
+        await addbButton.click();
+        let list = await driver.findElements(By.tagName("li"));
+        // expect(list.length).to.equal(1);
+        driver.sleep(10000).then(async () => {
+            let backDrop = await driver.findElement(By.id('backDrop'));
+            let popup = await driver.findElement(By.id(LABEL));
+            expect(backDrop).dom.to.be.visible();
+        });
+    });
 });

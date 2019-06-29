@@ -49,6 +49,7 @@ width: 100% !important;
 .white{
   color: white;
 }
-.mT40 {
-  margin-top: 200px;
+.middle {
+  position: fixed;
+  margin: 250px;
 }
