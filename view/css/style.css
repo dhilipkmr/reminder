@@ -1,4 +1,54 @@
-ul {
- float:right;
- margin-right:60%;
+/* Add your css styles here */
+.marL10 {
+  margin-left: 10px;
+}
+.dn {
+  display: none;
+}
+
+.noshadow {
+  box-shadow: 0 0 0 0 !important;
+}
+.padB10 {
+  padding-bottom: 10px;
+}
+.w100 {
+width: 100% !important;
+}
+
+.box {
+  box-shadow: 0 2px 4px 2px #c5c1c1;
+  margin: auto;
+  width: 50%;
+  padding: 20px;
+  text-align: center;
+  border-radius: 5px;
+}
+.popup {
+  position: fixed;
+  top:0;
+  bottom:0;
+  left:0;
+  right:0;
+  background: #000;
+}
+
+.whiteBg {
+  background: #fff;
+}
+.btn {
+  padding: 5px 10px;
+  border-radius: 5px;
+}
+.greenBg {
+  background: green;
+}
+.redBg {
+  background: red;
+}
+.white{
+  color: white;
+}
+.mT40 {
+  margin-top: 200px;
 }

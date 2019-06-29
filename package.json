@@ -12,6 +12,7 @@
     "chai": "^4.1.0",
     "chai-http": "^3.0.0",
     "gulp": "^3.9.1",
+    "jest": "^24.8.0",
     "jquery": "^3.2.1",
     "mocha-jsdom": "^1.1.0",
     "mocha-multi": "^0.11.0",

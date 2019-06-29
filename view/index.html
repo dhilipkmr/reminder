@@ -1,21 +1,29 @@
+<!-- Enter your HTML code here -->
 <!DOCTYPE html>
 <html>
-    <head>
-        <!--Define title-->
-        <title>List View App</title>
-        
-        <!--You can load all the css files here -->
-        <link rel="stylesheet" type="text/css" href="css/style.css">
-    </head>
-    
-    <body>
-        <!--HTML content goes here-->
-         <ul id="list" style="float:right; margin-right:60%;">
-         </ul>
-         <input id="input" type="text"></input>
-         <button id="button">Insert</button>
-        
-        <!--You can load all the javascript files here-->
-        <script type="text/javascript" src="js/script.js"></script>
-    </body>
+  <head>
+    <meta charset="utf-8">
+    <title>Reminder Application</title>
+		<link rel="stylesheet" type="text/css" href="./css/style.css"/>
+		<script type="text/javascript" src="./js/script.js"></script>
+  </head>
+<body>
+	<div class="box noshadow">
+		<label  class="marL10" for="label">Label</label>
+		<input id="label" placeholder="Timer Name"/>
+		<label  class="marL10"for="time">Time</label>
+		<input id="time" placeholder="h/m/s"/>
+		<button class="marL10" type="button" onclick="addTimer()">Add</button>
+	</div>
+	<div id="timerList">
+			
+	</div>
+	<div id="popup" class="popup box dn w100">
+		<div class="box whiteBg mT40 ">
+			<div id="labelHeader" class="padB10"></div>
+			<button type="button" id="snooze" class="btn greenBg white" onclick="snooze(event)">Snooze</button>
+			<button type="button" id="dismiss" class="btn redBg white" onclick="dismiss(event)">Done</button>
+		</div>
+	</div>
+  </body>
 </html>
