@@ -11,7 +11,7 @@
     "chai-dom": "^1.8.1",
     "chai-http": "^3.0.0",
     "chai-webdriver": "^1.2.0",
-    "gulp": "^3.9.1",
+    "gulp": "^4.0.2",
     "jest": "^24.8.0",
     "jquery": "^3.2.1",
     "mocha-jsdom": "^1.1.0",
